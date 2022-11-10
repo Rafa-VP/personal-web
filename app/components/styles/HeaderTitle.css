@@ -1,7 +1,9 @@
 div#header-title {
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
-h1#header-title {
+span#header-title {
   font-weight: bolder;
   text-transform: uppercase;
+  font-size: x-large;
 }

@@ -1,5 +1,6 @@
+'use client'
 import { Color, Flex, Text } from "@tremor/react";
-import "./styles/HeaderTitle.css"
+import "../styles/HeaderTitle.css"
 
 type TitleProps = {
   name: string,
@@ -11,9 +12,7 @@ export default function HeaderTitle(props: TitleProps) {
     <div id="header-title">
       <Flex justifyContent="justify-center">
         <Text textAlignment="text-center" color={props.color}>
-          <h1 id="header-title">
-            {props.name}
-          </h1>
+          <span id="header-title">{props.name}</span>
         </Text>
       </Flex>
     </div>
