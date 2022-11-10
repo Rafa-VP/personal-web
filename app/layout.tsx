@@ -13,11 +13,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  document.title = 'Home'
-
   return (
     <html lang="en">
-      <head />
+      <head>
+        <title>
+          Home
+        </title>
+      </head>
       <body>
         <div className={styles.container}>
           <TabList
