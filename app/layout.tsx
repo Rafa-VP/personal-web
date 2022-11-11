@@ -11,6 +11,7 @@ import Home from './page'
 import ProjectsPage from './projects/page'
 import CVPage from './cv/page'
 import ContactPage from './contact/page'
+import { useRouter } from 'next/router'
 
 export default function RootLayout({
   children,
@@ -41,8 +42,8 @@ export default function RootLayout({
       children: ContactPage
     }
   ]
-
-  const [route, setRoute] = useState(location.pathname)
+  const router = useRouter()
+  const [route, setRoute] = useState(router.pathname)
 
   return (
     <html lang="en">
