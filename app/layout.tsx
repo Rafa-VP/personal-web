@@ -6,12 +6,7 @@ import { TabListData } from './data/TabListData'
 import styles from './styles/page.module.css'
 import FooterCopyRight from './components/footer/FooterCopyRight'
 import { Analytics } from '@vercel/analytics/react'
-import { useState } from 'react'
-import Home from './page'
-import ProjectsPage from './projects/page'
-import CVPage from './cv/page'
-import ContactPage from './contact/page'
-import { useRouter } from 'next/router'
+import { Suspense, useState } from 'react'
 
 export default function RootLayout({
   children,
@@ -19,12 +14,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  type RouteComponent = {
-    path: string,
-    children: Function
-  }
+  /*   type RouteComponent = {
+      path: string,
+      children: Function
+    } */
 
-  const childrens: Array<RouteComponent> = [
+  /* const childrens: Array<RouteComponent> = [
     {
       path: '/',
       children: Home
@@ -41,24 +36,20 @@ export default function RootLayout({
       path: '/contact',
       children: ContactPage
     }
-  ]
-  const router = useRouter()
-  const [route, setRoute] = useState(router.pathname)
+  ] */
+
+  const [route, setRoute] = useState('/')
 
   return (
     <html lang="en">
-      <head>
-        <title>
-          Home
-        </title>
-      </head>
+      <head />
       <body>
         <div className={styles.container}>
           <TabList
-            defaultValue={route}
+            defaultValue={location.pathname}
             color="amber"
             handleSelect={(value) => {
-              history.replaceState(null, '', value)
+              location.href = value
               setRoute(value)
             }}
           >
@@ -73,9 +64,13 @@ export default function RootLayout({
               />
             )}
           </TabList>
-          {childrens.map((page) => {
+          {/*   {childrens.map((page) => {
             if (page.path === route) return <page.children />
-          })}
+          })} */}
+          <Suspense fallback='loading...'>
+            {children}
+          </Suspense>
+
           <FooterCopyRight />
           <Analytics />
         </div>
