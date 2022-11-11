@@ -57,7 +57,7 @@ export default function RootLayout({
             defaultValue={route}
             color="amber"
             handleSelect={(value) => {
-              window.history.replaceState(null, null, value)
+              window.history.replaceState(null, '', value)
               setRoute(value)
             }}
           >
