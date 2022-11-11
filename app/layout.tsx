@@ -42,7 +42,7 @@ export default function RootLayout({
     }
   ]
 
-  const [route, setRoute] = useState(window.location.pathname)
+  const [route, setRoute] = useState(location.pathname)
 
   return (
     <html lang="en">
