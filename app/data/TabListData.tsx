@@ -4,29 +4,26 @@ import { Tab } from "@tremor/react"
 
 type TabListProps = React.ComponentProps<typeof Tab>
 
+
+
 export const TabListData: Array<TabListProps> = [
   {
-    value: 0,
+    value: '/',
     text: "Home",
     icon: HomeIcon,
-    privateProps: {
-      color: "amber",
-      isActive: true,
-      handleTabClick: () => null
-    }
   },
   {
-    value: 1,
+    value: '/projects',
     text: 'Projects',
     icon: ComputerDesktopIcon
   },
   {
-    value: 2,
+    value: '/cv',
     text: 'CV',
     icon: DocumentTextIcon
   },
   {
-    value: 3,
+    value: '/contact',
     text: 'Contact',
     icon: IdentificationIcon
   }
